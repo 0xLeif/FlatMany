@@ -3,6 +3,9 @@
 *flatMap --> Publishers.MergeMany --> map --> collect*
 
 ## Usage
+```swift
+import FlatMany
+```
 
 ### Example
 ```swift
