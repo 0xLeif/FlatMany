@@ -1,7 +1,7 @@
 import Combine
 
 public extension Publisher where Output: Sequence {
-    func flatMany<MappedOutput: Sequence>(
+    func flatMany<MappedOutput>(
         map: @escaping (Output.Element) -> AnyPublisher<MappedOutput, Failure>
     ) -> AnyPublisher<[MappedOutput], Failure> {
         flatMap { data in
@@ -13,3 +13,4 @@ public extension Publisher where Output: Sequence {
         .eraseToAnyPublisher()
     }
 }
+
