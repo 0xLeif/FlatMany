@@ -12,5 +12,17 @@ public extension Publisher where Output: Sequence {
         }
         .eraseToAnyPublisher()
     }
+    
+    func flatMany<MappedOutput>(
+        compactMap: @escaping (Output.Element) -> AnyPublisher<MappedOutput, Failure>?
+    ) -> AnyPublisher<[MappedOutput], Failure> {
+        flatMap { data in
+            Publishers.MergeMany(
+                data.compactMap(compactMap)
+            )
+            .collect()
+        }
+        .eraseToAnyPublisher()
+    }
 }
 
