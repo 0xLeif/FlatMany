@@ -2,6 +2,9 @@
 
 *flatMap --> Publishers.MergeMany --> map --> collect*
 
+## What does FlatMany do?
+When you have a `Publisher` which has an Output that is a sequence. FlatMany makes it easy to map each element of that sequence into a publisher.
+
 ## Usage
 ```swift
 import FlatMany
